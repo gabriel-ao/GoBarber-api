@@ -23,3 +23,18 @@ docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ### postbird - utilizado para ver as informações lançadas ao banco 
 
 https://www.electronjs.org/apps/postbird
+
+
+
+### Migrations 
+CREATE MIGRATIONS
+( yarn / npm ) sequelize migration:create --name=create-users 
+
+ENVIA A MIGRATION CRIADA PARA O BANCO
+( yarn / npm ) sequelize db:migrate
+
+DESFAZ A MIGRATION
+( yarn / npm ) sequelize db:migrate:undo
+
+DESFAZ TODAS AS MIGRATIONS
+( yarn / npm ) sequelize db:migrate:undo:all
