@@ -23,8 +23,10 @@ class User extends Model {
     return this;
   }
 
+  // metodo statico feito para RELACIONAR TABELAS assim informando
+  // os dados que serão conectados
   static associate(models) {
-    this.belongsTo(models.File, { foreignKey: 'avatar_id' });
+    this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
   }
 
   checkPassword(password) {
@@ -33,6 +35,3 @@ class User extends Model {
 }
 
 export default User;
-
-// metodo statico feito para RELACIONAR TABELAS assim informando
-// os dados que serão conectados
