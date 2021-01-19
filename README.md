@@ -17,6 +17,7 @@ estiver rodando ou não
 
 docker logs (nome do container) para verificar a situação
 
+<h1> BANCO RELACIONAL - POSTGRESQL </h1>
 ### imagem docker- username: postgres -- password: docker
 
 https://hub.docker.com/_/postgres
@@ -42,3 +43,13 @@ DESFAZ A MIGRATION
 
 DESFAZ TODAS AS MIGRATIONS
 ( yarn / npm ) sequelize db:migrate:undo:all
+
+<h1> BANCO NÃO RELACIONAL - MONGODB </h1>
+
+### imagem docker
+
+docker run --name mongobarber -p 27017:27017 -d -t mongo
+
+OBS:
+-t == nome da img que vai utilizar
+-p == porta que vai utilizar
