@@ -55,6 +55,12 @@ class AppointmentController {
         .json({ error: 'Appointment date is not avaliable' });
     }
 
+    if (provider_id === req.userId) {
+      return res
+        .status(401)
+        .json({ error: 'not available appointment with youself' });
+    }
+
     const appointment = await Appointment.create({
       user_id: req.userId,
       provider_id,
@@ -64,9 +70,13 @@ class AppointmentController {
     // Noficiar prestador de serviço
     const user = await User.findByPk(req.userId);
 
-    const formattedDate = format(hourStart, "'dia' dd 'de 'MMMM', às' H:mm'h'", {
-      locale: pt,
-    });
+    const formattedDate = format(
+      hourStart,
+      "'dia' dd 'de 'MMMM', às' H:mm'h'",
+      {
+        locale: pt,
+      }
+    );
 
     await Notification.create({
       content: `Novo agendamento de ${user.name} para ${formattedDate} `,
