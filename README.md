@@ -46,10 +46,19 @@ DESFAZ TODAS AS MIGRATIONS
 
 <h1> BANCO NÃO RELACIONAL - MONGODB </h1>
 
-### imagem docker
+### imagem docker mongo
 
 docker run --name mongobarber -p 27017:27017 -d -t mongo
 
 OBS:
 -t == nome da img que vai utilizar
 -p == porta que vai utilizar
+
+## string connection
+
+mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false
+
+<h1> BANCO PARA FILA - REDIS </h1>
+docker run --name redisbarber -p 6379:6379 -d -t redis:alpine
+
+bee queue
