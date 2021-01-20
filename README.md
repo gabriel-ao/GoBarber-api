@@ -31,17 +31,24 @@ https://www.electronjs.org/apps/postbird
 
 CREATE MIGRATIONS
 ( yarn / npm ) sequelize migration:create --name=create-users
+
 ( yarn / npm ) sequelize migration:create --name=create-files
+
 ( yarn / npm ) sequelize migration:create --name=add-avatar-field-to-users
+
 ( yarn / npm ) sequelize migration:create --name=create-appointments
 
+
 ENVIA A MIGRATION CRIADA PARA O BANCO
+
 ( yarn / npm ) sequelize db:migrate
 
 DESFAZ A MIGRATION
+
 ( yarn / npm ) sequelize db:migrate:undo
 
 DESFAZ TODAS AS MIGRATIONS
+
 ( yarn / npm ) sequelize db:migrate:undo:all
 
 <h1> BANCO NÃO RELACIONAL - MONGODB </h1>
