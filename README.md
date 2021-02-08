@@ -31,17 +31,24 @@ https://www.electronjs.org/apps/postbird
 
 CREATE MIGRATIONS
 ( yarn / npm ) sequelize migration:create --name=create-users
+
 ( yarn / npm ) sequelize migration:create --name=create-files
+
 ( yarn / npm ) sequelize migration:create --name=add-avatar-field-to-users
+
 ( yarn / npm ) sequelize migration:create --name=create-appointments
 
+
 ENVIA A MIGRATION CRIADA PARA O BANCO
+
 ( yarn / npm ) sequelize db:migrate
 
 DESFAZ A MIGRATION
+
 ( yarn / npm ) sequelize db:migrate:undo
 
 DESFAZ TODAS AS MIGRATIONS
+
 ( yarn / npm ) sequelize db:migrate:undo:all
 
 <h1> BANCO NÃO RELACIONAL - MONGODB </h1>
@@ -51,7 +58,9 @@ DESFAZ TODAS AS MIGRATIONS
 docker run --name mongobarber -p 27017:27017 -d -t mongo
 
 OBS:
+
 -t == nome da img que vai utilizar
+
 -p == porta que vai utilizar
 
 ## string connection
@@ -61,4 +70,3 @@ mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=
 <h1> BANCO PARA FILA - REDIS </h1>
 docker run --name redisbarber -p 6379:6379 -d -t redis:alpine
 
-bee queue
