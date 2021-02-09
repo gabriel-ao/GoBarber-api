@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.js",
+    "start": "nodemon src/server.js",
+    "poststart": "npx sequelize db:migrate",
     "queue": "nodemon src/queue.js",
     "lint": "eslint --fix src --ext .js"
   },

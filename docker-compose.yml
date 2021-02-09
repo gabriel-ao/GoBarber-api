@@ -1,0 +1,37 @@
+version: '3.9'
+services:
+  apigobarber:
+    build: .
+    ports:
+      - 3333:3333
+    depends_on:
+      - database
+      - mongobarber
+      - redisbarber
+    networks:
+      - app-network
+  database:
+    image: postgres:alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: gobarber
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+    networks:
+      - app-network
+  mongobarber:
+    image: mongo
+    ports:
+      - 27017:27017
+    networks:
+      - app-network
+  redisbarber:
+    image: redis:5.0.10-alpine
+    command: ['redis-server', '--appendonly', 'yes']
+    ports:
+      - 6379:6379
+    networks:
+      - app-network
+networks:
+  app-network:

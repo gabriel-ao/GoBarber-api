@@ -15,7 +15,7 @@ class Database {
     this.mongo();
   }
 
-  init() {
+  async init() {
     this.connection = new Sequelize(databaseConfig);
 
     models
@@ -23,6 +23,8 @@ class Database {
       .map(
         (model) => model.associate && model.associate(this.connection.models)
       );
+
+    await this.connection.sync();
   }
 
   mongo() {
